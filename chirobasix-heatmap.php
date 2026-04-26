@@ -191,7 +191,6 @@ class ChiroBasixHeatmap {
 		add_action( 'admin_init', [ $this, 'register_settings' ] );
 		add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_tracker_script' ] );
 		add_filter( 'script_loader_tag', [ $this, 'add_script_attributes' ], 10, 2 );
-		add_action( 'send_headers', [ $this, 'allow_copilot_framing' ] );
 	}
 
 	/**
@@ -316,27 +315,6 @@ class ChiroBasixHeatmap {
 			</form>
 		</div>
 		<?php
-	}
-
-	/**
-	 * Allow copilot.chirobasix.com (and Vercel preview deployments) to embed
-	 * this site in an iframe for the heatmap viewer. Runs on frontend only —
-	 * is_admin() returns false inside send_headers but we skip wp-login too.
-	 *
-	 * @return void
-	 */
-	public function allow_copilot_framing() {
-		// Only modify frontend responses, not wp-admin or wp-login.
-		if ( is_admin() ) {
-			return;
-		}
-
-		// Remove WordPress's default X-Frame-Options header.
-		header_remove( 'X-Frame-Options' );
-
-		// Allow framing only from our own origin, production Copilot, and
-		// any Vercel preview deployment (*.vercel.app).
-		header( "Content-Security-Policy: frame-ancestors 'self' https://copilot.chirobasix.com https://*.vercel.app", false );
 	}
 
 	/**
