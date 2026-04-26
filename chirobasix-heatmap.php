@@ -6,7 +6,7 @@
  * Version: 1.0.0
  * Author: ChiroBasix
  * License: Proprietary
- * GitHub Repo: chirobasix/chirobasix-copilot
+ * GitHub Repo: chirobasix/chirobasix-heatmaps
  */
 
 // Prevent direct access to this file.
@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 class CBX_Heatmap_Updater {
 
 	private const GITHUB_OWNER    = 'chirobasix';
-	private const GITHUB_REPO     = 'chirobasix-copilot';
+	private const GITHUB_REPO     = 'chirobasix-heatmaps';
 	private const TRANSIENT        = 'cbx_heatmap_update';
 	private const CHECK_INTERVAL   = 6 * HOUR_IN_SECONDS;
 
@@ -119,7 +119,7 @@ class CBX_Heatmap_Updater {
 		$remote_version = ltrim( $release['tag_name'], 'vV' );
 
 		$raw_url = sprintf(
-			'https://raw.githubusercontent.com/%s/%s/%s/wp-engine/plugins/chirobasix-heatmap/chirobasix-heatmap.php',
+			'https://raw.githubusercontent.com/%s/%s/%s/chirobasix-heatmap.php',
 			self::GITHUB_OWNER,
 			self::GITHUB_REPO,
 			$release['tag_name']
