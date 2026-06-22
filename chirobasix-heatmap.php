@@ -3,10 +3,10 @@
  * Plugin Name: CHIROBASIX Heatmaps
  * Plugin URI: https://copilot.chirobasix.com
  * Description: Injects the CHIROBASIX Heatmaps tracking script to collect user behavior data for click maps, scroll depth, and mouse movement analysis.
- * Version: 1.0.0
+ * Version: 1.0.1
  * Author: ChiroBasix
  * License: Proprietary
- * GitHub Repo: chirobasix/chirobasix-heatmaps
+ * GitHub Repo: CHIROBASIX-LLC/cbx-plugins-copilot-heatmaps
  */
 
 // Prevent direct access to this file.
@@ -20,8 +20,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 class CBX_Heatmap_Updater {
 
-	private const GITHUB_OWNER    = 'chirobasix';
-	private const GITHUB_REPO     = 'chirobasix-heatmaps';
+	private const GITHUB_OWNER    = 'CHIROBASIX-LLC';
+	private const GITHUB_REPO     = 'cbx-plugins-copilot-heatmaps';
 	private const TRANSIENT        = 'cbx_heatmap_update';
 	private const CHECK_INTERVAL   = 6 * HOUR_IN_SECONDS;
 
